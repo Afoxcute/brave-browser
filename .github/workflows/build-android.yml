@@ -35,7 +35,7 @@ jobs:
     - run: git clone https://github.com/brave/brave-core.git ./src/brave
     - run: cd ./src/brave
     - run: npm install --force
-    - run: npm run sync --sync_chromium (true/false)
+    - run: npm run sync --sync_chromium
     - run: npm run init -- --target_os=android --target_arch=arm
     - run: npm config set target_os android
     - run: npm config set target_arch arm
