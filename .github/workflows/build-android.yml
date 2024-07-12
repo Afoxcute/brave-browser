@@ -1,0 +1,40 @@
+name: Build
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+# Build job. Builds app for Android with npm
+  build-android:
+    name: Build for Android
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: git clone git@github.com:brave/brave-core.git ./src/brave
+    - run: cd ./src/brave
+    - run: npm install    
+    - run: npm run init -- --target_os=android --target_arch=arm
+    - run: npm config set target_os android
+    - run: npm config set target_arch arm
+    - run: npm run build Release
+   
+         
+#    - name: Build with npm
+ #     run: |
+  #        cd ${{ github.workspace }}
+   #       buildozer android debug
+   # - name: Upload artifacts
+   #   uses: actions/upload-artifact@v2
+    #  with:
+     #     name: package
+      #    path: bin/*.apk
+        #  path: ${{ steps.buildozer.outputs.filename }}
