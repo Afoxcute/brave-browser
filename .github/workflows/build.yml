@@ -36,9 +36,8 @@ jobs:
     - run: cd ./src/brave
     - run: npm install
     - run: npm i semver log-update node-fetch@2.6.1 gclient
-    - run: sudo apt install gclient
-    - run: npm run sync brave_core_ref
-    - run: npm run init -- --target_os=android --target_arch=arm
+  #  - run: npm run sync brave_core_ref
+    - run: npm run init
     - run: npm config set target_os android
     - run: npm config set target_arch arm
     - run: npm run build Release
