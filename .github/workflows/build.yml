@@ -35,8 +35,8 @@ jobs:
     - run: git clone https://github.com/brave/brave-core.git ./src/brave
     - run: cd ./src/brave
     - run: npm install
-  #  - run: npm i semver log-update node-fetch@2.6.1 gclient
-  #  - run: npm run sync brave_core_ref
+    - run: npm i semver log-update node-fetch@2.6.1 gclient
+    - run: npm run sync brave_core_ref
     - run: npm run init
     - run: npm config set target_os android
     - run: npm config set target_arch arm
