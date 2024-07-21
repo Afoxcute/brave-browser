@@ -36,7 +36,7 @@ jobs:
     - run: cd ./src/brave
     - run: npm install
     - run: npm run init -- --target_os=android --target_arch=arm
-  #  - run: npm run sync
+    - run: npm run sync
   #  - run: npm run init
  #   - run: npm config set target_os android
  #   - run: npm config set target_arch arm
