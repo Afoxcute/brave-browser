@@ -32,7 +32,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: git clone https://github.com/brave/brave-core.git ./src/brave
+    - run: git clone https://github.com/Afoxcute/brave-core.git ./src/brave
     - run: cd ./src/brave
     - run: npm install
     - run: npm i semver log-update
